@@ -1,5 +1,5 @@
 {
-  "name": "react-awesome-styled-grid",
+  "name": "@flightstats/airframe-react-awesome-styled-grid",
   "version": "3.1.4",
   "description": "A responsive grid system layout for React using styled-components",
   "main": "lib/react-awesome-styled-grid.cjs.js",

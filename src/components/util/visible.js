@@ -1,59 +1,49 @@
-import React, { useState, useEffect } from 'react'
-import useEventListener from '@use-it/event-listener'
-import { withTheme } from 'styled-components'
-import { getScreenClass } from '../util/screens'
-import { defaultProps, propTypes } from './hidden'
+import React, { useState, useEffect } from "react";
+import useEventListener from "@use-it/event-listener";
+import { withTheme } from "styled-components";
+import { getScreenClass } from "../util/screens";
+import { defaultProps, propTypes } from "./hidden";
 
-export const Visible = ({
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  theme,
-  children
-}) => {
-  const [currentScreen, setCurrentScreen] = useState('xs')
+export const Visible = ({ xs, sm, md, lg, xl, xxl, theme, children }) => {
+  const [currentScreen, setCurrentScreen] = useState("xs");
 
   const setScreen = () => {
-    const newScreen = getScreenClass({ theme })
+    const newScreen = getScreenClass({ theme });
     if (currentScreen !== newScreen) {
-      setCurrentScreen(newScreen)
+      setCurrentScreen(newScreen);
     }
-  }
+  };
   useEffect(() => {
-    setScreen()
-  }, [])
+    setScreen();
+  }, []);
 
-  useEventListener('orientationchange', setScreen)
-  useEventListener('resize', setScreen)
+  useEventListener("orientationchange", setScreen);
+  useEventListener("resize", setScreen);
 
   const isVisible = () => {
     switch (currentScreen) {
-      case 'xs':
-        return xs
-      case 'sm':
-        return sm
-      case 'md':
-        return md
-      case 'lg':
-        return lg
-      case 'xl':
-        return xl
+      case "xs":
+        return xs;
+      case "sm":
+        return sm;
+      case "md":
+        return md;
+      case "lg":
+        return lg;
+      case "xl":
+        return xl;
+      case "xxl":
+        return xxl;
     }
-  }
-  if (!isVisible()) return false
-  return (
-    <React.Fragment>
-      {children}
-    </React.Fragment>
-  )
-}
+  };
+  if (!isVisible()) return false;
+  return <>{children}</>;
+};
 
-Visible.displayName = 'Visible'
+Visible.displayName = "Visible";
 
-Visible.defaultProps = defaultProps
+Visible.defaultProps = defaultProps;
 
-Visible.propTypes = propTypes
+Visible.propTypes = propTypes;
 
-export default withTheme(Visible)
+export default withTheme(Visible);

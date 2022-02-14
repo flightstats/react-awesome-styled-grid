@@ -10,36 +10,43 @@ exports[`<Container /> should render default style correctly 1`] = `
 
 @media only screen and (min-width:1rem) {
   .c0 {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
-@media only screen and (min-width:48rem) {
+@media only screen and (min-width:40rem) {
   .c0 {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 }
 
 @media only screen and (min-width:64rem) {
   .c0 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+
+@media only screen and (min-width:80rem) {
+  .c0 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 }
 
 @media only screen and (min-width:90rem) {
   .c0 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }
 
 @media only screen and (min-width:120rem) {
   .c0 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }
 
@@ -49,7 +56,7 @@ exports[`<Container /> should render default style correctly 1`] = `
   }
 }
 
-@media only screen and (min-width:48rem) {
+@media only screen and (min-width:40rem) {
   .c0 {
     width: 100%;
   }
@@ -61,15 +68,21 @@ exports[`<Container /> should render default style correctly 1`] = `
   }
 }
 
+@media only screen and (min-width:80rem) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 @media only screen and (min-width:90rem) {
   .c0 {
-    max-width: 90rem;
+    width: 100%;
   }
 }
 
 @media only screen and (min-width:120rem) {
   .c0 {
-    max-width: 90rem;
+    max-width: 120rem;
   }
 }
 

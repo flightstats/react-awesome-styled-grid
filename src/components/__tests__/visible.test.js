@@ -39,7 +39,7 @@ describe('<Visible />', () => {
   })
 
   it('should always be visible', () => {
-    const root = renderer.create(<Visible xs sm md xl lg>visible</Visible>).root
+    const root = renderer.create(<Visible xs sm md xl lg xxl>visible</Visible>).root
     Object.values(config().breakpoints).forEach(b => {
       act(() => {
         resize(b * 16)

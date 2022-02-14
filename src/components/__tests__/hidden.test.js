@@ -39,7 +39,7 @@ describe('<Hidden />', () => {
   })
 
   it('should always be hidden', () => {
-    const root = renderer.create(<Hidden xs sm md lg xl >hidden</Hidden>).root
+    const root = renderer.create(<Hidden xs sm md lg xl xxl>hidden</Hidden>).root
     Object.values(config().breakpoints).forEach(b => {
       act(() => {
         resize(b * 16)

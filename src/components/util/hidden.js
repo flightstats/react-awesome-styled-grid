@@ -1,56 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import useEventListener from '@use-it/event-listener'
-import PropTypes from 'prop-types'
-import { withTheme } from 'styled-components'
-import { getScreenClass } from '../util/screens'
+import React, { useState, useEffect } from "react";
+import useEventListener from "@use-it/event-listener";
+import PropTypes from "prop-types";
+import { withTheme } from "styled-components";
+import { getScreenClass } from "../util/screens";
 
-export const Hidden = ({
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  theme,
-  children
-}) => {
-  const [currentScreen, setCurrentScreen] = useState('xs')
+export const Hidden = ({ xs, sm, md, lg, xl, xxl, theme, children }) => {
+  const [currentScreen, setCurrentScreen] = useState("xs");
 
   const setScreen = () => {
-    const newScreen = getScreenClass({ theme })
+    const newScreen = getScreenClass({ theme });
     if (currentScreen !== newScreen) {
-      setCurrentScreen(newScreen)
+      setCurrentScreen(newScreen);
     }
-  }
+  };
   useEffect(() => {
-    setScreen()
-  }, [])
+    setScreen();
+  }, []);
 
-  useEventListener('orientationchange', setScreen)
-  useEventListener('resize', setScreen)
+  useEventListener("orientationchange", setScreen);
+  useEventListener("resize", setScreen);
 
   const isHidden = () => {
     switch (currentScreen) {
-      case 'xs':
-        return xs
-      case 'sm':
-        return sm
-      case 'md':
-        return md
-      case 'lg':
-        return lg
-      case 'xl':
-        return xl
+      case "xs":
+        return xs;
+      case "sm":
+        return sm;
+      case "md":
+        return md;
+      case "lg":
+        return lg;
+      case "xl":
+        return xl;
+      case "xxl":
+        return xxl;
     }
-  }
-  if (isHidden()) return false
-  return (
-    <React.Fragment>
-      {children}
-    </React.Fragment>
-  )
-}
+  };
+  if (isHidden()) return false;
+  return <>{children}</>;
+};
 
-Hidden.displayName = 'Hidden'
+Hidden.displayName = "Hidden";
 
 export const defaultProps = {
   xs: false,
@@ -58,9 +48,10 @@ export const defaultProps = {
   md: false,
   lg: false,
   xl: false,
+  xxl: false,
   children: null,
-  theme: {}
-}
+  theme: {},
+};
 
 export const propTypes = {
   xs: PropTypes.bool,
@@ -68,12 +59,13 @@ export const propTypes = {
   md: PropTypes.bool,
   lg: PropTypes.bool,
   xl: PropTypes.bool,
+  xxl: PropTypes.bool,
   theme: PropTypes.object,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
-Hidden.defaultProps = defaultProps
+Hidden.defaultProps = defaultProps;
 
-Hidden.propTypes = propTypes
+Hidden.propTypes = propTypes;
 
-export default withTheme(Hidden)
+export default withTheme(Hidden);

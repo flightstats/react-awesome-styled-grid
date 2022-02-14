@@ -1,52 +1,51 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { getScreenClass } from '../util/screens'
-import { withTheme } from 'styled-components'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { getScreenClass } from "../util/screens";
+import { withTheme } from "styled-components";
 
 export class ScreenClass extends Component {
   static defaultProps = {
-    theme: {}
+    theme: {},
+  };
+
+  constructor() {
+    super();
+    this.state = { screen: "xs" };
   }
-  constructor () {
-    super()
-    this.state = {screen: 'xs'}
-  }
-  componentDidMount () {
-    this.setScreen()
-    if (typeof window !== 'undefined') {
-      window.addEventListener('orientationchange', this.setScreen, false)
-      window.addEventListener('resize', this.setScreen, false)
+
+  componentDidMount() {
+    this.setScreen();
+    if (typeof window !== "undefined") {
+      window.addEventListener("orientationchange", this.setScreen, false);
+      window.addEventListener("resize", this.setScreen, false);
     }
   }
+
   setScreen = () => {
-    let lastScreenClass = this.state.screen
-    const actualScreenClass = getScreenClass(this.props)
-    if (!lastScreenClass || (lastScreenClass !== actualScreenClass)) {
-      lastScreenClass = actualScreenClass
-      this.setState({screen: actualScreenClass})
+    let lastScreenClass = this.state.screen;
+    const actualScreenClass = getScreenClass(this.props);
+    if (!lastScreenClass || lastScreenClass !== actualScreenClass) {
+      lastScreenClass = actualScreenClass;
+      this.setState({ screen: actualScreenClass });
     }
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener("orientationchange", this.setScreen);
+    window.removeEventListener("resize", this.setScreen);
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('orientationchange', this.setScreen)
-    window.removeEventListener('resize', this.setScreen)
-  }
+  render() {
+    const { render } = this.props;
 
-  render () {
-    const { render } = this.props
-
-    return (
-      <React.Fragment>
-        {render && render(this.state.screen)}
-      </React.Fragment>
-    )
+    return <>{render && render(this.state.screen)}</>;
   }
 }
 
-ScreenClass.displayName = 'ScreenClass'
+ScreenClass.displayName = "ScreenClass";
 
 ScreenClass.propTypes = {
-  render: PropTypes.func
-}
+  render: PropTypes.func,
+};
 
-export default withTheme(ScreenClass)
+export default withTheme(ScreenClass);

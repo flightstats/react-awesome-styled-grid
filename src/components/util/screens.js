@@ -25,6 +25,7 @@ export function getScreenClass (props = {}) {
     if (pxBreakpoints[2] && viewport >= pxBreakpoints[2]) screenClass = screenClasses[2]
     if (pxBreakpoints[3] && viewport >= pxBreakpoints[3]) screenClass = screenClasses[3]
     if (pxBreakpoints[4] && viewport >= pxBreakpoints[4]) screenClass = screenClasses[4]
+    if (pxBreakpoints[5] && viewport >= pxBreakpoints[5]) screenClass = screenClasses[5]
   }
   return screenClass
 };

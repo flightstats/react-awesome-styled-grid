@@ -97,6 +97,7 @@ Col.propTypes = {
   md: numberOrString,
   lg: numberOrString,
   xl: numberOrString,
+  xxl: numberOrString,
   align: stringOrObject,
   justify: stringOrObject,
   order: numberOrObject,
